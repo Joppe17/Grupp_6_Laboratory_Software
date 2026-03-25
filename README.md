@@ -12,7 +12,7 @@
 
 Declaration:
 I Elias Sjögren declare that I am the sole author of the content I add to this repository.
-
+I Vilmer Levin declare that I am the sole author of the content I add to this repository.
 
 
 
