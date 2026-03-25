@@ -6,7 +6,7 @@
 |--------------------|-------------------------------|-------------------|
 |Elias Sjögren       | sjel24no@student.ju.se        | fleyvier          |
 |Linus Jacobsson     | jali24qy@student.ju.se        | Joppe17           |
-
+|Vilmer Levin        | vilmerlevin@gmail.com		 | KingVilmer        |
 
 
 
