@@ -7,6 +7,7 @@
 |Elias Sjögren       | sjel24no@student.ju.se        | fleyvier          |
 |Linus Jacobsson     | jali24qy@student.ju.se        | Joppe17           |
 |Vilmer Levin        | vilmerlevin@gmail.com		 | KingVilmer        |
+|Felix Gudmundsson   | felixgudmundsson@gmail.com    | FelixG11          |
 
 
 
@@ -16,4 +17,6 @@ I Elias Sjögren declare that I am the sole author of the content I add to this 
 I Vilmer Levin declare that I am the sole author of the content I add to this repository.    
    
 I Linus Jacobsson declare that I am the sole author of the content I add to this repository.
+
+I Felix Gudmundsson declare that I am the sole author of the content I add to this repository.
 
