@@ -8,6 +8,7 @@
 |Linus Jacobsson     | jali24qy@student.ju.se        | Joppe17           |
 |Vilmer Levin        | vilmerlevin@gmail.com		 | KingVilmer        |
 |Felix Gudmundsson   | felixgudmundsson@gmail.com    | FelixG11          |
+|Knut Larsson   | knut.larsson@hotmail.se   | knutlarsson     |
 
 
 
@@ -20,3 +21,4 @@ I Linus Jacobsson declare that I am the sole author of the content I add to this
 
 I Felix Gudmundsson declare that I am the sole author of the content I add to this repository.
 
+I Knut Larsson declare that I am the sole author of the content I add to this repository.
