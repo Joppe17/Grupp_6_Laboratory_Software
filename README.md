@@ -3,6 +3,7 @@
 
 ## Declaration
 |Name                | Email                         | Github Handles    |
+|--------------------|-------------------------------|-------------------|
 |Elias Sjögren       | sjel24no@student.ju.se        | fleyvier          |
 |Linus Jacobsson     | jali24qy@student.ju.se        | Joppe17           |
 
