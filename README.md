@@ -8,7 +8,7 @@
 |Linus Jacobsson     | jali24qy@student.ju.se        | Joppe17           |
 |Vilmer Levin        | vilmerlevin@gmail.com		 | KingVilmer        |
 |Felix Gudmundsson   | felixgudmundsson@gmail.com    | FelixG11          |
-|Knut Larsson   | knut.larsson@hotmail.se   | knutlarsson     |
+|Knut Larsson        | knut.larsson@hotmail.se       | knutlarsson       |
 |Oskar Ali           | oskarali03@hotmail.com        | oskarali          |
 
 
@@ -29,4 +29,4 @@ I Oskar Ali declare that I am the sole author of the content I add to this repos
 
 ## Project Description
 
-Our plan is to create a game based off the classic game cookie clicker. It will be implemented in python with pygame. The game is played by clicking the object on the screen and earning points. Features will be added as the project moves forward. Some of the features will be auto-clicker, multipliers and perhaps some easter eggs.         
+Our plan is to create a game based off the classic game cookie clicker. It will be implemented in python with pygame. The game is played by clicking the object on the screen and earning points. Features will be added as the project moves forward. Some of the features will be auto-clicker, multipliers and perhaps some easter eggs.              Our workflow plan is that each student has a branch where they will create features to add to the main game. 
