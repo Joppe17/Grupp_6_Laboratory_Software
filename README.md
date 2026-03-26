@@ -22,3 +22,8 @@ I Linus Jacobsson declare that I am the sole author of the content I add to this
 I Felix Gudmundsson declare that I am the sole author of the content I add to this repository.
 
 I Knut Larsson declare that I am the sole author of the content I add to this repository.
+
+
+## Project Description
+
+Our plan is to create a game based off the classic game cookie clicker. It will be implemented in python with pygame. The game is played by clicking the object on the screen and earning points. Features will be added as the project moves forward. Some of the features will be auto-clicker, multipliers and perhaps some easter eggs.         
