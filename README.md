@@ -29,4 +29,6 @@ I Oskar Ali declare that I am the sole author of the content I add to this repos
 
 ## Project Description
 
-Our plan is to create a game based off the classic game cookie clicker. It will be implemented in python with pygame. The game is played by clicking the object on the screen and earning points. Features will be added as the project moves forward. Some of the features will be auto-clicker, multipliers and perhaps some easter eggs.              Our workflow plan is that each student has a branch where they will create features to add to the main game. 
+Our plan is to create a game based off the classic game cookie clicker. It will be implemented in python with pygame. The game is played by clicking the object on the screen and earning points. Features will be added as the project moves forward. Some of the features will be auto-clicker, multipliers and perhaps some easter eggs.              
+
+Our workflow plan is that each student has a branch where they will create features to add to the main game. Every pull request will be reviewed by one student only and shall not be pushed before the review is finished.
