@@ -6,7 +6,7 @@ screen = pygame.display.set_mode((1920,1080))
 
 pygame.display.set_caption("NOT CookieClicker")
 
-running = true
+running = True
 
 while running:
 
