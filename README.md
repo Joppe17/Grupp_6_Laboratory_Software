@@ -33,5 +33,4 @@ Our plan is to create a game based off the classic game cookie clicker. It will 
 
 Our workflow plan is that each student has a branch where they will create features to add to the main game. Every pull request will be reviewed by one student only and shall not be pushed before the review is finished.
 
-Here you can check our progress on the [Kanban Board][].
-[Kanban Board]: https://github.com/users/Joppe17/projects/1/views/1 
+Here you can check our progress on the [Kanban Board](https://github.com/users/Joppe17/projects/1/views/1).
