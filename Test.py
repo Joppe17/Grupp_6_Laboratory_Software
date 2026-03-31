@@ -19,6 +19,7 @@ while running:
 
 
     pygame.draw.circle(screen,(0,0,0),(320,320),150)
+    pygame.draw.rect(screen, (128,0,0), (100,100,200,200))
     pygame.display.update()
 
 pygame.quit()
