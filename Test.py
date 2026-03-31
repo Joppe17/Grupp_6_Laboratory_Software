@@ -2,12 +2,11 @@ import pygame
 
 pygame.init()
 
-screen = pygame.display.set_mode((640,640))
+screen = pygame.display.set_mode((1920,1080))
+
+pygame.display.set_caption("NOT CookieClicker")
 
 running = True
-
-screen.fill((128, 255, 255))
-pygame.display.flip()
 
 while running:
 
@@ -16,10 +15,6 @@ while running:
         if event.type == pygame.QUIT:
 
             running = False
-
-
-    pygame.draw.circle(screen,(0,0,0),(320,320),150)
-    pygame.display.update()
 
 pygame.quit()
 
