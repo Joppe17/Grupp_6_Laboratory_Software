@@ -17,58 +17,46 @@ Vi kommer anv√§nda en teknik som kallas frame rate independence som i princip s√
 def run():
     pygame.init()
 
-<<<<<<< HEAD
-Counter = 0
+    Counter = 0
 
 
 
-screen = pygame.display.set_mode((640,640))
-=======
->>>>>>> run_from_main
+    screen = pygame.display.set_mode((640,640))
 
     background_image_surface = pygame.image.load(os.path.join(ASSETS, "background.jpg"))
     background_image_surface = pygame.transform.scale(background_image_surface, (1200, 640))
 
     clock = pygame.time.Clock()
 
-<<<<<<< HEAD
-text_color = (255, 165, 0)
+    text_color = (255, 165, 0)
 
 
-objects = []
-=======
     objects = []
->>>>>>> run_from_main
 
     my_circle = Circle(320, 320, 95, (0, 0, 0))
     objects.append(my_circle)
 
-<<<<<<< HEAD
-pygame.display.set_caption('Not Cookie Clicker')
+    pygame.display.set_caption('Not Cookie Clicker')
 
-font=pygame.font.SysFont('comicsansms ', 60)
+    font=pygame.font.SysFont('comicsansms', 60)
+    #font = pygame.font.Font(None, 60)
 
-text = font.render('Clicks : ' + str(Counter), True, text_color)
-textrect = text.get_rect(center=(320, 50))
+    text = font.render('Clicks : ' + str(Counter), True, text_color)
+    textrect = text.get_rect(center=(320, 50))
 
-shadow = font.render('Clicks : ' + str(Counter), True, (0,0,0))
-screen.blit(shadow, (textrect.x + 3, textrect.y + 3))
+    shadow = font.render('Clicks : ' + str(Counter), True, (0,0,0))
+    screen.blit(shadow, (textrect.x + 3, textrect.y + 3))
 
-running = True
-=======
->>>>>>> run_from_main
+    running = True
         
     while running:
         
-<<<<<<< HEAD
-    text = font.render('Clicks : ' + str(Counter), True, text_color)
-    textrect = text.get_rect(center=(320, 50))   
+        text = font.render('Clicks : ' + str(Counter), True, text_color)
+        textrect = text.get_rect(center=(320, 50))   
 
       
 
-    dt = clock.tick(60)/1000
-=======
->>>>>>> run_from_main
+        dt = clock.tick(60)/1000
 
         for event in pygame.event.get():
 
@@ -76,22 +64,18 @@ running = True
             
                 running = False
 
-        screen.fill((0,25,150))
-        screen.blit(background_image_surface, background_image_surface.get_rect(center = screen.get_rect().center))
+            screen.fill((0,25,150))
+            screen.blit(background_image_surface, background_image_surface.get_rect(center = screen.get_rect().center))
+            screen.blit(text, textrect) 
 
-<<<<<<< HEAD
-    screen.blit(text, textrect) 
+        shadow = font.render('Clicks : ' + str(Counter), True, (0,0,0))
+        screen.blit(shadow, (textrect.x + 3, textrect.y + 3))
 
-    shadow = font.render('Clicks : ' + str(Counter), True, (0,0,0))
-    screen.blit(shadow, (textrect.x + 3, textrect.y + 3))
+        for obj in objects:
+            obj.update(dt)
+            obj.draw(screen)
 
-    for obj in objects:
-        obj.update(dt)
-        obj.draw(screen)
-
-    pygame.display.flip()
-pygame.quit()
+        pygame.display.flip()
+    pygame.quit()
 
 
-=======
->>>>>>> run_from_main
