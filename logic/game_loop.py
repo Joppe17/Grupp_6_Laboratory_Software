@@ -1,5 +1,9 @@
+import os
 import pygame
-from ui.ui import circle
+from ui.circle import Circle
+
+ASSETS = os.path.join(os.path.dirname(__file__), "..", "ui")
+
 """
 Min tanke är att detta är vår game loop till spelet.
 Här har vi en array av objekt där alla kan lägga till egenskapade objekt.
@@ -10,38 +14,39 @@ I vår game loop kommer dessa objekt konstant kallas på och ritas på skärmen 
 
 Vi kommer använda en teknik som kallas frame rate independence som i princip sätter samma framerate oavsett datorns hastighet.
 """
-pygame.init()
+def run():
+    pygame.init()
 
-screen = pygame.display.set_mode((640,640))
+    screen = pygame.display.set_mode((640,640))
 
-background_image_surface = pygame.image.load('ui/background.jpg')
-background_image_surface = pygame.transform.scale(background_image_surface, (1200, 640))
+    background_image_surface = pygame.image.load(os.path.join(ASSETS, "background.jpg"))
+    background_image_surface = pygame.transform.scale(background_image_surface, (1200, 640))
 
-clock = pygame.time.Clock()
+    clock = pygame.time.Clock()
 
-objects = []
+    objects = []
 
-my_circle = circle(320, 320, 95, (0, 0, 0))
-objects.append(my_circle)
+    my_circle = Circle(320, 320, 95, (0, 0, 0))
+    objects.append(my_circle)
 
-running = True
+    running = True
         
-while running:
+    while running:
         
-    dt = clock.tick(60)/1000
+        dt = clock.tick(60)/1000
 
-    for event in pygame.event.get():
+        for event in pygame.event.get():
 
-        if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT:
             
-            running = False
+                running = False
 
-    screen.fill((0,25,150))
-    screen.blit(background_image_surface, background_image_surface.get_rect(center = screen.get_rect().center))
+        screen.fill((0,25,150))
+        screen.blit(background_image_surface, background_image_surface.get_rect(center = screen.get_rect().center))
 
-    for obj in objects:
-        obj.update(dt)
-        obj.draw(screen)
+        for obj in objects:
+            obj.update(dt)
+            obj.draw(screen)
 
-    pygame.display.flip()
-pygame.quit()
+        pygame.display.flip()
+    pygame.quit()

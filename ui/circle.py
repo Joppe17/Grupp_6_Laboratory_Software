@@ -1,6 +1,6 @@
 import pygame
 
-class Circle: 
+class Circle:
     def __init__(self, x, y, radius, color):
         self.x = x
         self.y = y
