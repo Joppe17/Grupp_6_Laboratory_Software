@@ -1,4 +1,5 @@
 import pygame
+from ui.ui import circle
 """
 Min tanke är att detta är vår game loop till spelet.
 Här har vi en array av objekt där alla kan lägga till egenskapade objekt.
@@ -17,12 +18,18 @@ Counter = 0
 
 screen = pygame.display.set_mode((640,640))
 
+background_image_surface = pygame.image.load('background.jpg')
+background_image_surface = pygame.transform.scale(background_image_surface, (1200, 640))
+
 clock = pygame.time.Clock()
 
 text_color = (255, 165, 0)
 
 
 objects = []
+
+my_circle = circle(320, 320, 95, (0, 0, 0))
+objects.append(my_circle)
 
 pygame.display.set_caption('Not Cookie Clicker')
 
@@ -52,6 +59,7 @@ while running:
             running = False
 
     screen.fill((0,25,150))
+    screen.blit(background_image_surface, background_image_surface.get_rect(center = screen.get_rect().center))
 
     screen.blit(text, textrect) 
 
@@ -63,5 +71,6 @@ while running:
         obj.draw(screen)
 
     pygame.display.flip()
+pygame.quit()
 
 

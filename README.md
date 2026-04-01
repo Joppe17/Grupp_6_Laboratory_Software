@@ -35,4 +35,13 @@ Our workflow plan is that each student has a branch where they will create featu
 
 Here you can check our progress on the [Kanban Board](https://github.com/users/Joppe17/projects/1/views/1).
 
-To compile and run this project you have to first and foremost have pygame downloaded on your computer. Then there are two methods to run the game. One way is to in the command line write "py 'PathToTheProject'\grupp_6_laboratory_software\logic\game_loop.py". The other method is to just run the game_loop.py file in Visual Studio.
+To compile and run this project you first have to download pygame on your computer.  
+In command line write:  
+``` 
+python logic\game_loop.py
+```  
+
+Or if you are using windows double click on run.bat
+```
+run
+```
