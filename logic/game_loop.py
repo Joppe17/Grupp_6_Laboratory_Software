@@ -1,5 +1,9 @@
+import os
 import pygame
-from ui.ui import circle
+from ui.circle import Circle
+
+ASSETS = os.path.join(os.path.dirname(__file__), "..", "ui")
+
 """
 Min tanke är att detta är vår game loop till spelet.
 Här har vi en array av objekt där alla kan lägga till egenskapade objekt.
@@ -10,27 +14,36 @@ I vår game loop kommer dessa objekt konstant kallas på och ritas på skärmen 
 
 Vi kommer använda en teknik som kallas frame rate independence som i princip sätter samma framerate oavsett datorns hastighet.
 """
-pygame.init()
+def run():
+    pygame.init()
 
+<<<<<<< HEAD
 Counter = 0
 
 
 
 screen = pygame.display.set_mode((640,640))
+=======
+>>>>>>> run_from_main
 
-background_image_surface = pygame.image.load('background.jpg')
-background_image_surface = pygame.transform.scale(background_image_surface, (1200, 640))
+    background_image_surface = pygame.image.load(os.path.join(ASSETS, "background.jpg"))
+    background_image_surface = pygame.transform.scale(background_image_surface, (1200, 640))
 
-clock = pygame.time.Clock()
+    clock = pygame.time.Clock()
 
+<<<<<<< HEAD
 text_color = (255, 165, 0)
 
 
 objects = []
+=======
+    objects = []
+>>>>>>> run_from_main
 
-my_circle = circle(320, 320, 95, (0, 0, 0))
-objects.append(my_circle)
+    my_circle = Circle(320, 320, 95, (0, 0, 0))
+    objects.append(my_circle)
 
+<<<<<<< HEAD
 pygame.display.set_caption('Not Cookie Clicker')
 
 font=pygame.font.SysFont('comicsansms ', 60)
@@ -42,25 +55,31 @@ shadow = font.render('Clicks : ' + str(Counter), True, (0,0,0))
 screen.blit(shadow, (textrect.x + 3, textrect.y + 3))
 
 running = True
+=======
+>>>>>>> run_from_main
         
-while running:
+    while running:
         
+<<<<<<< HEAD
     text = font.render('Clicks : ' + str(Counter), True, text_color)
     textrect = text.get_rect(center=(320, 50))   
 
       
 
     dt = clock.tick(60)/1000
+=======
+>>>>>>> run_from_main
 
-    for event in pygame.event.get():
+        for event in pygame.event.get():
 
-        if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT:
             
-            running = False
+                running = False
 
-    screen.fill((0,25,150))
-    screen.blit(background_image_surface, background_image_surface.get_rect(center = screen.get_rect().center))
+        screen.fill((0,25,150))
+        screen.blit(background_image_surface, background_image_surface.get_rect(center = screen.get_rect().center))
 
+<<<<<<< HEAD
     screen.blit(text, textrect) 
 
     shadow = font.render('Clicks : ' + str(Counter), True, (0,0,0))
@@ -74,3 +93,5 @@ while running:
 pygame.quit()
 
 
+=======
+>>>>>>> run_from_main
