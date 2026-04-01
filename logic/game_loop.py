@@ -1,7 +1,7 @@
 import os
 import pygame
 from ui.circle import Circle
-
+#from ui.start_menu import draw_start_menu
 ASSETS = os.path.join(os.path.dirname(__file__), "..", "ui")
 
 """
@@ -74,6 +74,8 @@ def run():
         for obj in objects:
             obj.update(dt)
             obj.draw(screen)
+
+        #draw_start_menu(screen)
 
         pygame.display.flip()
     pygame.quit()
