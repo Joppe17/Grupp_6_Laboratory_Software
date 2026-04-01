@@ -14,7 +14,7 @@ pygame.init()
 
 screen = pygame.display.set_mode((640,640))
 
-background_image_surface = pygame.image.load('background.jpg')
+background_image_surface = pygame.image.load('ui/background.jpg')
 background_image_surface = pygame.transform.scale(background_image_surface, (1200, 640))
 
 clock = pygame.time.Clock()
