@@ -11,16 +11,38 @@ Vi kommer anv√§nda en teknik som kallas frame rate independence som i princip s√
 """
 pygame.init()
 
+Counter = 0
+
+
+
 screen = pygame.display.set_mode((640,640))
 
 clock = pygame.time.Clock()
 
+text_color = (255, 165, 0)
+
+
 objects = []
+
+pygame.display.set_caption('Not Cookie Clicker')
+
+font=pygame.font.SysFont('comicsansms ', 60)
+
+text = font.render('Clicks : ' + str(Counter), True, text_color)
+textrect = text.get_rect(center=(320, 50))
+
+shadow = font.render('Clicks : ' + str(Counter), True, (0,0,0))
+screen.blit(shadow, (textrect.x + 3, textrect.y + 3))
 
 running = True
         
 while running:
         
+    text = font.render('Clicks : ' + str(Counter), True, text_color)
+    textrect = text.get_rect(center=(320, 50))   
+
+      
+
     dt = clock.tick(60)/1000
 
     for event in pygame.event.get():
@@ -31,8 +53,15 @@ while running:
 
     screen.fill((0,25,150))
 
+    screen.blit(text, textrect) 
+
+    shadow = font.render('Clicks : ' + str(Counter), True, (0,0,0))
+    screen.blit(shadow, (textrect.x + 3, textrect.y + 3))
+
     for obj in objects:
         obj.update(dt)
         obj.draw(screen)
 
     pygame.display.flip()
+
+
