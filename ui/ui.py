@@ -7,5 +7,8 @@ class circle:
         self.radius = radius
         self.color = color
 
+    def update(self, dt):
+        pass
+
     def draw(self, screen):
         pygame.draw.circle(screen, self.color, (self.x, self.y), self.radius)

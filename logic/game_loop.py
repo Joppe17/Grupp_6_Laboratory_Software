@@ -1,4 +1,5 @@
 import pygame
+from ui.ui import circle
 """
 Min tanke är att detta är vår game loop till spelet.
 Här har vi en array av objekt där alla kan lägga till egenskapade objekt.
@@ -16,6 +17,9 @@ screen = pygame.display.set_mode((640,640))
 clock = pygame.time.Clock()
 
 objects = []
+
+my_circle = circle(320, 320, 95, (0, 0, 0))
+objects.append(my_circle)
 
 running = True
         
@@ -36,3 +40,4 @@ while running:
         obj.draw(screen)
 
     pygame.display.flip()
+pygame.quit()
