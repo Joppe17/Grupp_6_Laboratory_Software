@@ -13,6 +13,9 @@ pygame.init()
 
 screen = pygame.display.set_mode((640,640))
 
+background_image_surface = pygame.image.load('background.jpg')
+background_image_surface = pygame.transform.scale(background_image_surface, (1200, 640))
+
 clock = pygame.time.Clock()
 
 objects = []
@@ -30,6 +33,7 @@ while running:
             running = False
 
     screen.fill((0,25,150))
+    screen.blit(background_image_surface, background_image_surface.get_rect(center = screen.get_rect().center))
 
     for obj in objects:
         obj.update(dt)
