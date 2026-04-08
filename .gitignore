@@ -4,6 +4,12 @@ __pycache__/
 *.pyo
 *.pyd
 
+#venv stuff
+venv/
+.venv/
+env/
+ENV/
+
 .vs/
 .vscode/
 __pycache__/
