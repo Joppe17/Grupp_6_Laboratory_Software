@@ -66,9 +66,9 @@ def run():
             screen.blit(background_image_surface, background_image_surface.get_rect(center = screen.get_rect().center))
             screen.blit(text, textrect) 
 
-        shadow = font.render('Clicks : ' + str(Counter), True, (0,0,0))
+        shadow = font.render('CLICKS : ' + str(Counter), True, (0,0,0))
         screen.blit(shadow, (textrect.x + 3, textrect.y + 3))
-        text = font.render('Clicks : ' + str(Counter), True, text_color)
+        text = font.render('CLICKS : ' + str(Counter), True, text_color)
         textrect = text.get_rect(center=(320, 50))   
 
         for obj in objects:
