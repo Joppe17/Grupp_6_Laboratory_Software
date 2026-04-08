@@ -41,6 +41,12 @@ In command line write:
 python logic\game_loop.py
 ```  
 
+or...
+```
+py logic\game_loop.py
+
+```  
+
 Or if you are using windows double click on run.bat
 ```
 run
