@@ -30,7 +30,9 @@ def run():
 
     text_color = (255, 165, 0)
 
-
+"""
+Move some of this code to an appropiate place to adhere to a good structure.
+"""
     objects = []
 
     my_circle = Circle(320, 320, 95, (0, 0, 0))
