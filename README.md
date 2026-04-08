@@ -38,13 +38,13 @@ Here you can check our progress on the [Kanban Board](https://github.com/users/J
 To compile and run this project you first have to download pygame on your computer.  
 In command line write:  
 ``` 
-python logic\game_loop.py
+python main.py
 ```  
 
 or...
-```
-py logic\game_loop.py
 
+```
+py main.py
 ```  
 
 Or if you are using windows double click on run.bat
