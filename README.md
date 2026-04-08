@@ -37,7 +37,7 @@ Here you can check our progress on the [Kanban Board](https://github.com/users/J
 
 To compile and run this project you first have to download pygame on your computer:
 ```
-pip install pygame
+pip install pygame   
 ```
 
 In command line write:  
