@@ -28,7 +28,7 @@ def run():
 
     clock = pygame.time.Clock()
 
-    text_color = (255, 165, 0)
+    text_color = (255, 105, 180)
 
 
     objects = []
@@ -38,21 +38,19 @@ def run():
 
     pygame.display.set_caption('Not Cookie Clicker')
 
-    font=pygame.font.SysFont('comicsansms', 60)
-    #font = pygame.font.Font(None, 60)
+    font = pygame.font.Font(os.path.join(ASSETS, "Nereus.ttf"), 60)
 
-    text = font.render('Clicks : ' + str(Counter), True, text_color)
+    text = font.render('CLICKS : ' + str(Counter), True, text_color)
     textrect = text.get_rect(center=(320, 50))
 
-    shadow = font.render('Clicks : ' + str(Counter), True, (0,0,0))
+    shadow = font.render('CLICKS : ' + str(Counter), True, (0,0,0))
     screen.blit(shadow, (textrect.x + 3, textrect.y + 3))
 
     running = True
         
     while running:
         
-        text = font.render('Clicks : ' + str(Counter), True, text_color)
-        textrect = text.get_rect(center=(320, 50))   
+        
 
       
 
@@ -70,6 +68,8 @@ def run():
 
         shadow = font.render('Clicks : ' + str(Counter), True, (0,0,0))
         screen.blit(shadow, (textrect.x + 3, textrect.y + 3))
+        text = font.render('Clicks : ' + str(Counter), True, text_color)
+        textrect = text.get_rect(center=(320, 50))   
 
         for obj in objects:
             obj.update(dt)
