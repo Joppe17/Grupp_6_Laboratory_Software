@@ -35,7 +35,11 @@ Our workflow plan is that each student has a branch where they will create featu
 
 Here you can check our progress on the [Kanban Board](https://github.com/users/Joppe17/projects/1/views/1).
 
-To compile and run this project you first have to download pygame on your computer.  
+To compile and run this project you first have to download pygame on your computer:
+```
+pip install pygame
+```
+
 In command line write:  
 ``` 
 python main.py
