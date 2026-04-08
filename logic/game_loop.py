@@ -35,7 +35,7 @@ Move some of this code to an appropiate place to adhere to a good structure.
 """
     objects = []
 
-    my_circle = Circle(320, 320, 95, (0, 0, 0))
+    my_circle = Circle(320, 320, 100, (0, 0, 0))
     objects.append(my_circle)
 
     pygame.display.set_caption('Not Cookie Clicker')
