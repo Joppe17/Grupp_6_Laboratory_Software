@@ -7,8 +7,14 @@ class Circle(GameObject):
         self.x = x
         self.y = y
         self.radius = radius
+        self.base_radius = radius
         self.state = state
         self.image = self.make_circular_image(image_path,radius)
+        self.scale_factor = 1.2
+        self.max_radius = 500
+        self.growth_speed = 600
+        self.target_radius = radius
+        self.image_path = image_path
         
     def handle_event(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:
@@ -16,6 +22,8 @@ class Circle(GameObject):
             dy = event.pos[1] - self.y
             if math.sqrt(dx * dx + dy * dy) <= self.radius:
                 self.state.score += 1
+                if self.target_radius < self.max_radius:
+                    self.target_radius = int(self.target_radius * self.scale_factor)
 
     def make_circular_image(self, image_path, radius):
         diameter = radius*2
@@ -42,7 +50,28 @@ class Circle(GameObject):
         return cropped
 
     def update(self, dt):
-        pass
+        shrink_speed = 300
+        if self.target_radius > self.base_radius:
+            self.target_radius -= shrink_speed * dt
+            if self.target_radius < self.base_radius:
+                self.target_radius = self.base_radius
+
+            if self.radius < self.target_radius:
+                self.radius += self.growth_speed * dt
+                if self.radius > self.target_radius:
+                    self.radius = self.target_radius
+
+            elif self.radius > self.target_radius:
+                self.radius -= self.growth_speed * dt
+                if self.radius < self.target_radius:
+                    self.radius = self.target_radius
+
+
+
+        self.image = self.make_circular_image(
+            self.image_path,
+            int(self.radius)
+            )
 
     def draw(self, screen):
         rect = self.image.get_rect(center=(self.x, self.y))
