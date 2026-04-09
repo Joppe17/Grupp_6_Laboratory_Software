@@ -5,7 +5,7 @@ from ui.circle import Circle
 from ui.mute_button import MuteButton
 from logic.game_state import GameState
 
-#from ui.start_menu import draw_start_menu
+from ui.start_menu import StartMenu
 
 """
 Min tanke är att detta är vår game loop till spelet.
@@ -35,6 +35,8 @@ def run():
     pygame.mixer.music.load("ui/alec_koff-african-drums-tribal-492178.mp3")
     pygame.mixer.music.play(-1) 
 
+    menu = StartMenu(screen)
+
     running = True
     while running:
 
@@ -43,6 +45,9 @@ def run():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                if menu.run() == "exit":
+                    running = False
             for obj in objects:
                 obj.handle_event(event)
             mute_button.handle_event(event)
