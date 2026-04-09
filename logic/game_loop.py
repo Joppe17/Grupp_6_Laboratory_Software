@@ -19,6 +19,13 @@ def run():
     counter = 0  # lowercase, Python convention
     screen = pygame.display.set_mode((640, 640))
     clock = pygame.time.Clock()
+
+    text_color = (255, 105, 180)
+
+
+    objects = []
+
+    my_circle = Circle(320, 320, 100, os.path.join(ASSETS, "monkey_clicker.jpg"))
     objects = []
 
     # --- move all setup into their own modules ---
@@ -28,7 +35,6 @@ def run():
 
     background = Background(screen)
     hud = Hud(screen)
-    my_circle = Circle(320, 320, 95, (0, 0, 0))
     objects.append(my_circle)
 
     pygame.display.set_caption('Not Cookie Clicker')
