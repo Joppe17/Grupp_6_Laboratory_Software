@@ -4,7 +4,7 @@ from ui.hud import Hud
 from ui.circle import Circle
 from logic.game_state import GameState
 
-#from ui.start_menu import draw_start_menu
+from ui.start_menu import StartMenu
 
 """
 Min tanke är att detta är vår game loop till spelet.
@@ -30,7 +30,8 @@ def run():
     my_circle = Circle(320, 320, 95, "ui/monkey_clicker.jpg", state)
     objects.append(my_circle)
 
-    
+    menu = StartMenu(screen)
+
     running = True
     while running:
 
@@ -39,6 +40,9 @@ def run():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                if menu.run() == "exit":
+                    running = False
             for obj in objects:
                 obj.handle_event(event)
 
