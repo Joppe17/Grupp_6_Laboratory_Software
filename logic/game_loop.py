@@ -1,8 +1,10 @@
-import os
 import pygame
+from ui.background import Background
+from ui.hud import Hud
 from ui.circle import Circle
+from logic.game_state import GameState
+
 #from ui.start_menu import draw_start_menu
-ASSETS = os.path.join(os.path.dirname(__file__), "..", "ui")
 
 """
 Min tanke är att detta är vår game loop till spelet.
@@ -16,9 +18,9 @@ Vi kommer använda en teknik som kallas frame rate independence som i princip s�
 """
 def run():
     pygame.init()
-    counter = 0  # lowercase, Python convention
     screen = pygame.display.set_mode((640, 640))
     clock = pygame.time.Clock()
+    pygame.display.set_caption('Monkey Clicker')
 
     text_color = (255, 105, 180)
 
@@ -28,29 +30,29 @@ def run():
     my_circle = Circle(320, 320, 100, os.path.join(ASSETS, "monkey_clicker.jpg"))
     objects = []
 
-    # --- move all setup into their own modules ---
-    from ui.background import Background
-    from ui.hud import Hud
-    from ui.circle import Circle
+    state = GameState()
+    objects = []
 
     background = Background(screen)
     hud = Hud(screen)
+    my_circle = Circle(320, 320, 95, (0, 0, 0), state)
     objects.append(my_circle)
 
-    pygame.display.set_caption('Not Cookie Clicker')
+    
     running = True
-
     while running:
+
         dt = clock.tick(60) / 1000
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-
+            for obj in objects:
+                obj.handle_event(event)
         # these three always run every frame, outside event loop
         screen.fill((0, 25, 150))
         background.draw(screen)
-        hud.draw(screen, counter)
+        hud.draw(screen, state.score)
 
         for obj in objects:
             obj.update(dt)
