@@ -30,7 +30,9 @@ def run():
     my_circle = Circle(320, 320, 95, "ui/monkey_clicker.jpg", state)
     objects.append(my_circle)
 
-    
+    pygame.mixer.music.load("ui/alec_koff-african-drums-tribal-492178.mp3")
+    pygame.mixer.music.play(-1) 
+
     running = True
     while running:
 
