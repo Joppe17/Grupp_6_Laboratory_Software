@@ -2,6 +2,7 @@ import pygame
 from ui.background import Background
 from ui.hud import Hud
 from ui.circle import Circle
+from ui.mute_button import MuteButton
 from logic.game_state import GameState
 
 #from ui.start_menu import draw_start_menu
@@ -29,6 +30,7 @@ def run():
     hud = Hud(screen)
     my_circle = Circle(320, 320, 95, "ui/monkey_clicker.jpg", state)
     objects.append(my_circle)
+    mute_button = MuteButton(40, 600, size=70)
 
     pygame.mixer.music.load("ui/alec_koff-african-drums-tribal-492178.mp3")
     pygame.mixer.music.play(-1) 
@@ -43,6 +45,7 @@ def run():
                 running = False
             for obj in objects:
                 obj.handle_event(event)
+            mute_button.handle_event(event)
 
         screen.fill((0, 25, 150))
         background.draw(screen)
@@ -52,6 +55,7 @@ def run():
             obj.update(dt)
             obj.draw(screen)
 
+        mute_button.draw(screen)
         pygame.display.flip()
 
     pygame.quit()
