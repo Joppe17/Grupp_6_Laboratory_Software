@@ -22,6 +22,14 @@ def run():
     clock = pygame.time.Clock()
     pygame.display.set_caption('Monkey Clicker')
 
+    text_color = (255, 105, 180)
+
+
+    objects = []
+
+    my_circle = Circle(320, 320, 100, os.path.join(ASSETS, "monkey_clicker.jpg"))
+    objects = []
+
     state = GameState()
     objects = []
 
