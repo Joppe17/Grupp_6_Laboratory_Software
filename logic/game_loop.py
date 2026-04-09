@@ -33,7 +33,7 @@ def run():
 
     objects = []
 
-    my_circle = Circle(320, 320, 100, (0, 0, 0))
+    my_circle = Circle(320, 320, 100, os.path.join(ASSETS, "monkey_clicker.jpg"))
     objects.append(my_circle)
 
     pygame.display.set_caption('Not Cookie Clicker')
