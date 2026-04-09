@@ -22,20 +22,12 @@ def run():
     clock = pygame.time.Clock()
     pygame.display.set_caption('Monkey Clicker')
 
-    text_color = (255, 105, 180)
-
-
-    objects = []
-
-    my_circle = Circle(320, 320, 100, os.path.join(ASSETS, "monkey_clicker.jpg"))
-    objects = []
-
     state = GameState()
     objects = []
 
     background = Background(screen)
     hud = Hud(screen)
-    my_circle = Circle(320, 320, 95, (0, 0, 0), state)
+    my_circle = Circle(320, 320, 95, "ui/monkey_clicker.jpg", state)
     objects.append(my_circle)
 
     
@@ -49,7 +41,7 @@ def run():
                 running = False
             for obj in objects:
                 obj.handle_event(event)
-        # these three always run every frame, outside event loop
+
         screen.fill((0, 25, 150))
         background.draw(screen)
         hud.draw(screen, state.score)
