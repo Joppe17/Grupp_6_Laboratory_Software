@@ -4,6 +4,7 @@ from ui.hud import Hud
 from ui.circle import Circle
 from ui.mute_button import MuteButton
 from logic.game_state import GameState
+from ui.banana import flyingBanana
 
 from ui.start_menu import StartMenu
 
@@ -32,6 +33,9 @@ def run():
     objects.append(my_circle)
     mute_button = MuteButton(40, 600, size=70)
 
+    banana = flyingBanana(screen, state)
+    objects.append(banana)
+
     pygame.mixer.music.load("ui/alec_koff-african-drums-tribal-492178.mp3")
     pygame.mixer.music.play(-1) 
 
@@ -54,7 +58,7 @@ def run():
 
         screen.fill((0, 25, 150))
         background.draw(screen)
-        hud.draw(screen, state.score)
+        hud.draw(screen, state.score, state)
 
         for obj in objects:
             obj.update(dt)
