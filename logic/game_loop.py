@@ -7,6 +7,7 @@ from logic.game_state import GameState
 
 from ui.start_menu import StartMenu
 
+from ui.whack_a_monkey import run_minigame
 """
 Min tanke är att detta är vår game loop till spelet.
 Här har vi en array av objekt där alla kan lägga till egenskapade objekt.
@@ -18,6 +19,8 @@ I vår game loop kommer dessa objekt konstant kallas på och ritas på skärmen 
 Vi kommer använda en teknik som kallas frame rate independence som i princip sätter samma framerate oavsett datorns hastighet.
 """
 def run():
+
+
     pygame.init()
     screen = pygame.display.set_mode((640, 640))
     clock = pygame.time.Clock()
@@ -36,6 +39,8 @@ def run():
     pygame.mixer.music.play(-1) 
 
     menu = StartMenu(screen)
+
+    run_minigame(screen, clock)
 
     running = True
     while running:

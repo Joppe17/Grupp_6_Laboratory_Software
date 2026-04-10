@@ -1,12 +1,21 @@
 import pygame
 import random
+import os
 
-monkey_img = pygame.image.load(os.path.join(ASSETS, "monkey.png")).convert_alpha()
-monkey_img = pygame.transform.scale(monkey_img, (60, 60))
+ASSETS = os.path.join(os.path.dirname(__file__))
 
 
 def run_minigame(screen, clock):
 
+    monkey_img = pygame.image.load(os.path.join(ASSETS, "monkey.png")).convert_alpha()
+    monkey_img = pygame.transform.scale(monkey_img, (120, 120))
+
+    monkey_img2 = pygame.image.load(os.path.join(ASSETS, "monkey2.png")).convert_alpha()
+    monkey_img2 = pygame.transform.scale(monkey_img2, (120, 120))
+
+
+    font = pygame.font.Font(os.path.join(os.path.dirname(__file__), "Jungle.otf"), 60)
+    
     monkeys = []
     score = 0
     time_left = 20.0
@@ -18,10 +27,10 @@ def run_minigame(screen, clock):
         spawn_timer -= dt
 
         if spawn_timer <=0:
-            spawn_timer = 1.0
+            spawn_timer = 5.0
             x = random.randint(100,540)
             y = random.randint(100,540)
-            monkeys.append(pygame.Rect(x,y,60,60))
+            monkeys.append(pygame.Rect(x,y,120,120))
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
