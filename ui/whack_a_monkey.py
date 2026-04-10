@@ -3,7 +3,7 @@ import random
 import os
 import math
 
-ASSETS = os.path.dirname(__file__)
+ASSETS = os.path.join(os.path.dirname(__file__), "images")
 
 def run_minigame(screen, clock):
     imgs = [
