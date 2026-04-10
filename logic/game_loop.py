@@ -58,7 +58,7 @@ def run():
 
         screen.fill((0, 25, 150))
         background.draw(screen)
-        hud.draw(screen, state.score)
+        hud.draw(screen, state.score, state)
 
         for obj in objects:
             obj.update(dt)
