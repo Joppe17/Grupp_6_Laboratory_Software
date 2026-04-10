@@ -3,15 +3,16 @@ import random
 import os
 import math
 
-ASSETS = os.path.join(os.path.dirname(__file__), "images")
+IMAGES = os.path.join(os.path.dirname(__file__), "..", "images")
+FONTS  = os.path.join(os.path.dirname(__file__))
 
 def run_minigame(screen, clock):
     imgs = [
-        pygame.transform.scale(pygame.image.load(os.path.join(ASSETS, "monkey.png")).convert_alpha(), (120, 120)),
-        pygame.transform.scale(pygame.image.load(os.path.join(ASSETS, "monkey2.png")).convert_alpha(), (120, 120)),
+        pygame.transform.scale(pygame.image.load(os.path.join(IMAGES, "monkey.png")).convert_alpha(), (120, 120)),
+        pygame.transform.scale(pygame.image.load(os.path.join(IMAGES, "monkey2.png")).convert_alpha(), (120, 120)),
     ]
-    bg   = pygame.transform.scale(pygame.image.load(os.path.join(ASSETS, "minigame_background.jpg")).convert(), (640, 640))
-    font = pygame.font.Font(os.path.join(ASSETS, "Jungle.otf"), 60)
+    bg   = pygame.transform.scale(pygame.image.load(os.path.join(IMAGES, "minigame_background.jpg")).convert(), (640, 640))
+    font = pygame.font.Font(os.path.join(FONTS, "Jungle.otf"), 60)
 
     monkeys, score, time_left, spawn_timer = [], 0, 20.0, 0
 

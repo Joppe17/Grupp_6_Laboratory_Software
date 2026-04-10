@@ -40,7 +40,7 @@ def run():
 
     menu = StartMenu(screen)
 
-    run_minigame(screen, clock)
+    #run_minigame(screen, clock)
 
     running = True
     while running:
