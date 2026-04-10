@@ -3,6 +3,7 @@ from ui.background import Background
 from ui.hud import Hud
 from ui.circle import Circle
 from logic.game_state import GameState
+from ui.upgrade_menu import UpgradeMenu
 
 #from ui.start_menu import draw_start_menu
 
@@ -27,8 +28,12 @@ def run():
 
     background = Background(screen)
     hud = Hud(screen)
+    upgrade_menu = UpgradeMenu(640, 640)
+
     my_circle = Circle(320, 320, 95, "ui/monkey_clicker.jpg", state)
     objects.append(my_circle)
+
+    
 
     
     running = True
@@ -39,8 +44,20 @@ def run():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-            for obj in objects:
-                obj.handle_event(event)
+
+            upgrade_menu.handle_event(event)
+
+            send_to_objects = True
+
+            if hasattr(event, "pos") and upgrade_menu.contains_point(event.pos):
+                send_to_objects = False
+
+            if event.type == pygame.MOUSEWHEEL and upgrade_menu.contains_point(pygame.mouse.get_pos()):
+                send_to_objects = False
+
+            if send_to_objects:
+                for obj in objects:
+                    obj.handle_event(event)
 
         screen.fill((0, 25, 150))
         background.draw(screen)
@@ -48,7 +65,13 @@ def run():
 
         for obj in objects:
             obj.update(dt)
+            
+        upgrade_menu.update(dt)
+
+        for obj in objects:
             obj.draw(screen)
+
+        upgrade_menu.draw(screen)
 
         pygame.display.flip()
 
