@@ -21,7 +21,7 @@ class StartMenu:
         self.start_rect = pygame.Rect(btn_x, py + 185, btn_w, btn_h)
         self.exit_rect  = pygame.Rect(btn_x, py + 265, btn_w, btn_h)
 
-        font_path = os.path.join(os.path.dirname(__file__), "Jungle.otf")
+        font_path = os.path.join(os.path.dirname(__file__), "Banana.otf")
         self.title_font  = pygame.font.Font(font_path, 52)
         self.button_font = pygame.font.Font(font_path, 36)
 
