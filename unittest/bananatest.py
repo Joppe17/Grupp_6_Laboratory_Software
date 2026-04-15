@@ -1,8 +1,6 @@
 import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-
-import pytest
 import pygame
 from ui.banana import flyingBanana
 from logic.game_state import GameState
@@ -10,11 +8,12 @@ from logic.game_state import GameState
 pygame.init()
 screen = pygame.display.set_mode((800, 600))
 
+
 class TestGameState:
     def test__initial_score(self):
         state = GameState()
         assert state.score == 0
-    
+
     def test_initial_multiplier(self):
         state = GameState()
         assert state.click_multiplier == 1
@@ -24,6 +23,7 @@ class TestGameState:
         state.click_multiplier = 3
         state.score += 1 * state.click_multiplier
         assert state.score == 3
+
 
 class TestBanana:
     def test_starts_inactive(self):
@@ -47,7 +47,7 @@ class TestBanana:
         banana.handle_event(click_event)
         assert state.click_multiplier == 3
         assert banana.bonus_active == True
-    
+
     def test_bonus_expires(self):
         state = GameState()
         banana = flyingBanana(screen, state)
