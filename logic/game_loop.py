@@ -4,21 +4,12 @@ from ui.hud import Hud
 from ui.circle import Circle
 from ui.mute_button import MuteButton
 from logic.game_state import GameState
-from ui.banana import flyingBanana
+from ui.banana import FlyingBanana
 
 from ui.start_menu import StartMenu
 
 from ui.whack_a_monkey import run_minigame
-"""
-Min tanke är att detta är vår game loop till spelet.
-Här har vi en array av objekt där alla kan lägga till egenskapade objekt.
-Alla skapade objekt kommer ha GameObjects som bas klass.
-GameObjects klassen kommer ha metoder bland annat update, draw med mera.
 
-I vår game loop kommer dessa objekt konstant kallas på och ritas på skärmen eller lyssna på knapp tryckningar osv.
-
-Vi kommer använda en teknik som kallas frame rate independence som i princip sätter samma framerate oavsett datorns hastighet.
-"""
 def run():
 
 
@@ -36,7 +27,7 @@ def run():
     objects.append(my_circle)
     mute_button = MuteButton(40, 600, size=70)
 
-    banana = flyingBanana(screen, state)
+    banana = FlyingBanana(screen, state)
     objects.append(banana)
 
     pygame.mixer.music.load("ui/alec_koff-african-drums-tribal-492178.mp3")

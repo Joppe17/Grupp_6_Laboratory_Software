@@ -28,3 +28,4 @@ class MuteButton:
             start = (self.rect.left + 10, self.rect.top + 10)
             end = (self.rect.right - 10, self.rect.bottom - 10)
             pygame.draw.line(screen, (220, 50, 50), start, end, 4)
+

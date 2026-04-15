@@ -3,7 +3,7 @@ import random
 from logic.game_object import GameObject
 
 
-class flyingBanana(GameObject):
+class FlyingBanana(GameObject):
     spawnInterval = 40
     duration = 10
     bonusMultiplier = 3
@@ -63,3 +63,4 @@ class flyingBanana(GameObject):
                 self.bonus_active = True
                 self.bonus_timer = self.duration
                 self.state.click_multiplier = self.bonusMultiplier
+

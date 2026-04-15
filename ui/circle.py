@@ -76,3 +76,4 @@ class Circle(GameObject):
     def draw(self, screen):
         rect = self.image.get_rect(center=(self.x, self.y))
         screen.blit(self.image, rect)
+

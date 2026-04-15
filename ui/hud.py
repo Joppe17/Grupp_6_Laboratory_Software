@@ -26,3 +26,4 @@ class Hud:
             bonus_rect = bonus_text.get_rect(midleft=(rect.right + 10, rect.centery))
             screen.blit(bonus_shadow, (bonus_rect.x + 2, bonus_rect.y + 2))
             screen.blit(bonus_text, bonus_rect)
+

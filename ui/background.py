@@ -10,3 +10,4 @@ class Background:
 
     def draw(self, screen):
         screen.blit(self.surface, self.surface.get_rect(center=screen.get_rect().center))
+
