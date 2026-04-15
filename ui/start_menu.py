@@ -1,6 +1,7 @@
 import pygame
 import os
 
+
 class StartMenu:
     def __init__(self, screen):
         self.screen = screen
@@ -19,10 +20,10 @@ class StartMenu:
         btn_w, btn_h = 200, 55
         btn_x = (sw - btn_w) // 2
         self.start_rect = pygame.Rect(btn_x, py + 185, btn_w, btn_h)
-        self.exit_rect  = pygame.Rect(btn_x, py + 265, btn_w, btn_h)
+        self.exit_rect = pygame.Rect(btn_x, py + 265, btn_w, btn_h)
 
         font_path = os.path.join(os.path.dirname(__file__), "Banana.otf")
-        self.title_font  = pygame.font.Font(font_path, 52)
+        self.title_font = pygame.font.Font(font_path, 52)
         self.button_font = pygame.font.Font(font_path, 36)
 
     def _draw(self, mouse_pos):
@@ -32,8 +33,10 @@ class StartMenu:
         self.screen.blit(overlay, (0, 0))
 
         # Panel
-        pygame.draw.rect(self.screen, self.panel_color, self.panel_rect, border_radius=20)
-        pygame.draw.rect(self.screen, self.border_color, self.panel_rect, width=4, border_radius=20)
+        pygame.draw.rect(self.screen, self.panel_color,
+                         self.panel_rect, border_radius=20)
+        pygame.draw.rect(self.screen, self.border_color,
+                         self.panel_rect, width=4, border_radius=20)
 
         # Title
         title = self.title_font.render("PAUSED", True, self.border_color)
@@ -45,7 +48,8 @@ class StartMenu:
             hover = rect.collidepoint(mouse_pos)
             btn_color = (180, 100, 30) if hover else (139, 69, 19)
             pygame.draw.rect(self.screen, btn_color, rect, border_radius=12)
-            pygame.draw.rect(self.screen, self.border_color, rect, width=2, border_radius=12)
+            pygame.draw.rect(self.screen, self.border_color,
+                             rect, width=2, border_radius=12)
             text = self.button_font.render(label, True, (255, 255, 255))
             bounds = text.get_bounding_rect()
             self.screen.blit(text, (rect.centerx - bounds.centerx,
@@ -74,4 +78,3 @@ class StartMenu:
             self._draw(mouse_pos)
             pygame.display.flip()
             clock.tick(60)
-
