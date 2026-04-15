@@ -14,7 +14,8 @@ TEXT_COLOR = (255, 255, 255)
 OVERLAY_COLOR = (0, 0, 0, 140)
 
 #font
-FONT_PATH = os.path.join(os.path.dirname(__file__), "Banana.otf")
+FONT_PATH_B = os.path.join(os.path.dirname(__file__), "Banana.otf")
+FONT_PATH_J = os.path.join(os.path.dirname(__file__), "Jungle.otf")
 
 TITLE_FONT_SIZE = 52
 BUTTON_FONT_SIZE = 36

@@ -2,6 +2,7 @@ import pygame
 import sys
 from theme import *
 
+
 pygame.init()
 pygame.font.init()
 
@@ -10,8 +11,9 @@ WIDTH = 800
 HEIGHT = 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Monkeycasino")
-title_font = pygame.font.Font(FONT_PATH, TITLE_FONT_SIZE)
-button_font = pygame.font.Font(FONT_PATH, BUTTON_FONT_SIZE)
+title_font = pygame.font.Font(FONT_PATH_J, TITLE_FONT_SIZE)
+button_font = pygame.font.Font(FONT_PATH_B, BUTTON_FONT_SIZE)
+
 
 class CasinoStartMenu:
     
@@ -75,6 +77,15 @@ class CasinoStartMenu:
             text = button_font.render(button["label"], True, TEXT_COLOR)
             text_rect = text.get_rect(center=button["rect"].center)
             self.screen.blit(text, text_rect)
+
+        #title
+        title = title_font.render("MONKEY CASINO", True, BORDER_COLOR)
+        title_shadow = title_font.render("MONKEY CASINO", True, (0, 0, 0))
+
+        title_rect = title.get_rect(center=(self.panel_rect.centerx, self.panel_rect.y + 70))
+
+        self.screen.blit(title_shadow, (title_rect.x + 3, title_rect.y + 3))
+        self.screen.blit(title, title_rect)
             
 menu = CasinoStartMenu(screen) 
 
