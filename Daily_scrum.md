@@ -23,3 +23,17 @@ Worked on the games music, solved some merge conflicts and added fonts. Will foc
 
 ### Oskar
 Did graphics in the clickable object and working on an upgrade menu. Will keep working on upgrade menu.
+
+##15th april
+
+## Knut 
+Added simple unit test for startup and a pylinter.
+
+## Elias
+Added a "bananatest" for testing a feature. (also helped knut with pylinter).
+
+## Vilmer 
+Created a casino menu and created a theme.py for creating future menus.
+
+## Linus
+Did pairwise programming with Elias on the "bananatest".
