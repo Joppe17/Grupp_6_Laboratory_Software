@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install pygame pytest
+
+      - name: Check that code parses
+        run: |
+          python -m py_compile main.py
+          python -m py_compile logic/game_loop.py
+          python -m py_compile logic/game_object.py
+          python -m py_compile logic/game_state.py
+          python -m py_compile ui/background.py
+          python -m py_compile ui/banana.py
+          python -m py_compile ui/circle.py
+          python -m py_compile ui/hud.py
+          python -m py_compile ui/mute_button.py
+          python -m py_compile ui/start_menu.py
+          python -m py_compile ui/whack_a_monkey.py
+
+      - name: Run unit tests
+        run: |
+          pytest unittest/bananatest.py
+        env:
+          SDL_VIDEODRIVER: dummy
+          SDL_AUDIODRIVER: dummy
