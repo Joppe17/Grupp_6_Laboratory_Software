@@ -2,6 +2,7 @@ import pygame
 import random
 from logic.game_object import GameObject
 
+
 class flyingBanana(GameObject):
     spawnInterval = 40
     duration = 10
@@ -26,10 +27,10 @@ class flyingBanana(GameObject):
 
     def spawn(self):
         self.x = random.randint(60, self.width - 60)
-        self.y = -80 
+        self.y = -80
         self.active = True
 
-    def update(self, dt):      
+    def update(self, dt):
         if not self.active:
             self.spawn_timer += dt
             if self.spawn_timer >= self.spawnInterval:
@@ -46,7 +47,7 @@ class flyingBanana(GameObject):
             if self.bonus_timer <= 0:
                 self.bonus_active = False
                 self.state.click_multiplier = 1
-    
+
     def draw(self, screen):
         if self.active:
             screen.blit(self.image, (self.x, self.y))
@@ -54,7 +55,7 @@ class flyingBanana(GameObject):
     def handle_event(self, event):
         if not self.active:
             return
-        
+
         if event.type == pygame.MOUSEBUTTONDOWN:
             rect = pygame.Rect(int(self.x), int(self.y), 80, 80)
             if rect.collidepoint(event.pos):
@@ -62,5 +63,3 @@ class flyingBanana(GameObject):
                 self.bonus_active = True
                 self.bonus_timer = self.duration
                 self.state.click_multiplier = self.bonusMultiplier
-
-
