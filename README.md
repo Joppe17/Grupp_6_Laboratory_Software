@@ -105,9 +105,3 @@ Or on a specific file:
 ```
 flake8 ui/banana.py
 ```
-
-To automatically fix most linting issues, install and run autopep8:
-```
-pip install autopep8
-autopep8 --in-place ui/banana.py
-```
