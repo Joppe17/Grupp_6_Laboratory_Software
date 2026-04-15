@@ -43,7 +43,8 @@ class TestBanana:
         state = GameState()
         banana = FlyingBanana(screen, state)
         banana.spawn()
-        click_event = pygame.event.Event(pygame.MOUSEBUTTONDOWN, pos=(banana.x + 10, banana.y + 10))
+        click_event = pygame.event.Event(
+            pygame.MOUSEBUTTONDOWN, pos=(banana.x + 10, banana.y + 10))
         banana.handle_event(click_event)
         assert state.click_multiplier == 3
         assert banana.bonus_active == True
@@ -52,7 +53,8 @@ class TestBanana:
         state = GameState()
         banana = FlyingBanana(screen, state)
         banana.spawn()
-        click_event = pygame.event.Event(pygame.MOUSEBUTTONDOWN, pos=(banana.x + 10, banana.y + 10))
+        click_event = pygame.event.Event(
+            pygame.MOUSEBUTTONDOWN, pos=(banana.x + 10, banana.y + 10))
         banana.handle_event(click_event)
         assert state.click_multiplier == 3
         assert banana.bonus_active == True
@@ -62,4 +64,3 @@ class TestBanana:
         banana.update(dt)
         assert state.click_multiplier == 1
         assert banana.bonus_active == False
-

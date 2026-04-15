@@ -63,4 +63,3 @@ class FlyingBanana(GameObject):
                 self.bonus_active = True
                 self.bonus_timer = self.duration
                 self.state.click_multiplier = self.bonusMultiplier
-

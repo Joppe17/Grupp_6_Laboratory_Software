@@ -1,6 +1,6 @@
 import os
 
-#Felix menu theme
+# Felix menu theme
 PANEL_WIDTH = 500
 PANEL_HEIGHT = 350
 
@@ -13,7 +13,7 @@ BUTTON_HOVER = (180, 100, 30)
 TEXT_COLOR = (255, 255, 255)
 OVERLAY_COLOR = (0, 0, 0, 140)
 
-#font
+# font
 FONT_PATH_B = os.path.join(os.path.dirname(__file__), "Banana.otf")
 FONT_PATH_J = os.path.join(os.path.dirname(__file__), "Jungle.otf")
 

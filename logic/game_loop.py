@@ -10,8 +10,8 @@ from ui.start_menu import StartMenu
 
 from ui.whack_a_monkey import run_minigame
 
-def run():
 
+def run():
 
     pygame.init()
     screen = pygame.display.set_mode((640, 640))
@@ -31,11 +31,11 @@ def run():
     objects.append(banana)
 
     pygame.mixer.music.load("ui/alec_koff-african-drums-tribal-492178.mp3")
-    pygame.mixer.music.play(-1) 
+    pygame.mixer.music.play(-1)
 
     menu = StartMenu(screen)
 
-    #run_minigame(screen, clock)
+    # run_minigame(screen, clock)
 
     running = True
     while running:
