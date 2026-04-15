@@ -1,7 +1,7 @@
 # Grupp_6_Laboratory_Software
 [![Pylint](https://github.com/Joppe17/Grupp_6_Laboratory_Software/actions/workflows/pylint.yml/badge.svg)](https://github.com/Joppe17/Grupp_6_Laboratory_Software/actions/workflows/pylint.yml)
 
-[![CI](https://github.com/Joppe17/Grupp_6_Laboratory_Software/actions/workflows/parse.yml/badge.svg)](https://github.com/Joppe17/Grupp_6_Laboratory_Software/actions/workflows/parse.yml)
+[![Compiling](https://github.com/Joppe17/Grupp_6_Laboratory_Software/actions/workflows/parse.yml/badge.svg)](https://github.com/Joppe17/Grupp_6_Laboratory_Software/actions/workflows/parse.yml)
 
 ## Member Table
 |Name                | Email                         | Github Handles    |
