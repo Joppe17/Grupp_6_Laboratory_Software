@@ -1,6 +1,8 @@
 # Grupp_6_Laboratory_Software
 [![Pylint](https://github.com/Joppe17/Grupp_6_Laboratory_Software/actions/workflows/pylint.yml/badge.svg)](https://github.com/Joppe17/Grupp_6_Laboratory_Software/actions/workflows/pylint.yml)
 
+![Compilation](https://github.com/Joppe17/Grupp_6_Laboratory_Software/actions/workflows/ci.yml/badge.svg)
+
 ## Member Table
 |Name                | Email                         | Github Handles    |
 |--------------------|-------------------------------|-------------------|
