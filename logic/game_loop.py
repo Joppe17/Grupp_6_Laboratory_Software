@@ -30,7 +30,7 @@ def run():
     banana = FlyingBanana(screen, state)
     objects.append(banana)
 
-    pygame.mixer.music.load("ui/alec_koff-african-drums-tribal-492178.mp3")
+    pygame.mixer.music.load("ui/background_music.mp3")
     pygame.mixer.music.play(-1)
 
     menu = StartMenu(screen)
