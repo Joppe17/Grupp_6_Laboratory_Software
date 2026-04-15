@@ -49,3 +49,4 @@ def run_minigame(screen, clock):
         screen.blit(font.render(f'Time: {max(0, time_left):.1f}', True, (255, 255, 255)), (20, 20))
         screen.blit(font.render(f'Whacked: {score}', True, (255, 255, 255)), (20, 70))
         pygame.display.flip()
+

@@ -74,3 +74,4 @@ class StartMenu:
             self._draw(mouse_pos)
             pygame.display.flip()
             clock.tick(60)
+
