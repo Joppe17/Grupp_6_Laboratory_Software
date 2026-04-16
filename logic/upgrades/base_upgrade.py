@@ -1,3 +1,7 @@
+"""
+this file contains the base for current and future upgrades.
+"""
+
 class Upgrade:
     name = ""
     description = ""

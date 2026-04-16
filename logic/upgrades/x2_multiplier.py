@@ -1,5 +1,6 @@
 from logic.upgrades.base_upgrade import Upgrade
 
+
 class X2_Multiplier(Upgrade):
     name = "X2 Click Multiplier"
     description = "Every click is doubled"
@@ -7,4 +8,4 @@ class X2_Multiplier(Upgrade):
     tab = "Click Upgrades"
 
     def apply_effect(self):
-        self.state.permanent_click_multiplier *= 2 
+        self.state.permanent_x2_multiplier *= 2 

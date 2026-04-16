@@ -5,7 +5,7 @@ from ui.theme import (
     TEXT_COLOR, OVERLAY_COLOR, FONT_PATH_B, FONT_PATH_J,
     TITLE_FONT_SIZE, BUTTON_FONT_SIZE
 )
-from ui.upgrades.upgrade_card import UpgradesPanel
+from ui.upgrades.upgrade_card import UpgradePanel
 PANEL_WIDTH_RATIO = 0.8
 SLIDE_SPEED = 2000
 
@@ -38,13 +38,13 @@ class UpgradeMenu:
         self.close_rect = pygame.Rect(
             int(self.target_x) + self.panel_width - 50, 10, 40, 40)
         
-        self.upgrades_panel = UpgradesPanel(self.panel_width, self.target_x)
+        self.upgrades_panel = UpgradePanel(self.panel_width, self.target_x)
 
     def toggle(self):
         self.open = not self.open
 
-    def set_upgrades(self):
-        self.upgrades_panel = UpgradesPanel(self.panel_width, self.target_x)
+    def set_upgrades(self, upgrades):
+        self.upgrades_panel.set_upgrades(upgrades)
 
     def update(self, dt):
         if self.open:

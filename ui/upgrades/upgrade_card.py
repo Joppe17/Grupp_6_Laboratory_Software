@@ -15,7 +15,7 @@ class UpgradePanel:
         self.panel_width = panel_width
         self.target_x = int(target_x)
         self.tab_font = pygame.font.Font(FONT_PATH_J, 28)
-        self.small_font = pygame.font.FONT(FONT_PATH_J, 22)
+        self.small_font = pygame.font.Font(FONT_PATH_J, 22)
         self.upgrades = []
         self._buy_rects = []
     
@@ -47,10 +47,10 @@ class UpgradePanel:
             pygame.draw.rect(screen, (80, 35, 10), card_rect, border_radius=8)
             pygame.draw.rect(screen, BORDER_COLOR, card_rect, width=2, border_radius=8)
 
-            name_surf = self.tab_font.render(updrage.name, True, BORDER_COLOR)
+            name_surf = self.tab_font.render(upgrade.name, True, BORDER_COLOR)
             name_rect = name_surf.get_rect(topleft=(card_rect.x + 10, card_rect.y + 5))
             name_rect.y += 6
-            screen.blit(desc_surf, name_rect)
+            screen.blit(name_surf, name_rect)
 
             desc_surf = self.small_font.render(upgrade.description, True, TEXT_COLOR)
             desc_rect = desc_surf.get_rect(topleft=(card_rect.x + 10, card_rect.y + 52))
@@ -75,7 +75,7 @@ class UpgradePanel:
             screen.blit(cost_surf, cost_rect)
 
             owned_surf = self.small_font.render(f"Owned {upgrade.times_bought}", True, TEXT_COLOR)
-            owned_rect = owned_surf.get_rect(topleft(buy_rect.x, buy_rect.button + 4))
+            owned_rect = owned_surf.get_rect(topleft=(buy_rect.x, buy_rect.bottom + 4))
             owned_rect.y += 6
             screen.blit(owned_surf, owned_rect)
 
