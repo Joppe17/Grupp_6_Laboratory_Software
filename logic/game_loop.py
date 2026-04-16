@@ -5,7 +5,7 @@ from ui.circle import Circle
 from ui.mute_button import MuteButton
 from logic.game_state import GameState
 from ui.banana import FlyingBanana
-
+from ui.upgrade_menu import UpgradeMenu, UpgradeButton
 from ui.start_menu import StartMenu
 
 from ui.whack_a_monkey import run_minigame
@@ -31,6 +31,8 @@ def run():
     objects.append(banana)
 
     pygame.mixer.music.load("sounds/background_music.mp3")
+    upgrade_menu = UpgradeMenu(screen)
+    upgrade_button = UpgradeButton(screen, upgrade_menu)
     pygame.mixer.music.play(-1)
 
     menu = StartMenu(screen)
@@ -51,6 +53,8 @@ def run():
             for obj in objects:
                 obj.handle_event(event)
             mute_button.handle_event(event)
+            upgrade_menu.handle_event(event)
+            upgrade_button.handle_event(event)
 
         screen.fill((0, 25, 150))
         background.draw(screen)
@@ -60,6 +64,9 @@ def run():
             obj.update(dt)
             obj.draw(screen)
 
+        upgrade_menu.update(dt)
+        upgrade_menu.draw()
+        upgrade_button.draw()
         mute_button.draw(screen)
         pygame.display.flip()
 
