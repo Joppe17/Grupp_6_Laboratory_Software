@@ -1,13 +1,13 @@
 import pygame
 import os
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+FONTS = os.path.join(PROJECT_ROOT, "fonts")
 
 class Hud:
     def __init__(self, screen):
-        self.font = pygame.font.Font(os.path.join(
-            os.path.dirname(__file__), "Jungle.otf"), 60)
-        self.small_font = pygame.font.Font(os.path.join(
-            os.path.dirname(__file__), "Jungle.otf"), 25)
+        self.font = pygame.font.Font(os.path.join(FONTS, "Jungle.otf"), 60)
+        self.small_font = pygame.font.Font(os.path.join(FONTS, "Jungle.otf"), 25)
         self.text_color = (1, 50, 32)
         self.shadow_color = (0, 0, 0)
         self.bonus_color = (255, 200, 0)

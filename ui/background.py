@@ -1,12 +1,12 @@
 import os
 import pygame
 
-ASSETS = os.path.join(os.path.dirname(__file__))
-
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+IMAGES = os.path.join(PROJECT_ROOT, "images")
 
 class Background:
     def __init__(self, screen):
-        img = pygame.image.load(os.path.join(ASSETS, "background.jpg"))
+        img = pygame.image.load(os.path.join(IMAGES, "background.jpg"))
         self.surface = pygame.transform.scale(img, (1000, 700))
 
     def draw(self, screen):

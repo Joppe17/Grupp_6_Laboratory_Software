@@ -3,6 +3,7 @@ import math
 from logic.game_object import GameObject
 
 
+
 class Circle(GameObject):
     def __init__(self, x, y, radius, image_path, state):
         self.x = x

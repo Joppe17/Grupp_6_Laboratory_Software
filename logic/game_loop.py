@@ -23,14 +23,14 @@ def run():
 
     background = Background(screen)
     hud = Hud(screen)
-    my_circle = Circle(320, 320, 95, "ui/monkey_clicker.jpg", state)
+    my_circle = Circle(320, 320, 95, "images/monkey_clicker.jpg", state)
     objects.append(my_circle)
     mute_button = MuteButton(40, 600, size=70)
 
     banana = FlyingBanana(screen, state)
     objects.append(banana)
 
-    pygame.mixer.music.load("ui/background_music.mp3")
+    pygame.mixer.music.load("sounds/background_music.mp3")
     pygame.mixer.music.play(-1)
 
     menu = StartMenu(screen)
