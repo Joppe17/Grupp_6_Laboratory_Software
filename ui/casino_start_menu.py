@@ -1,6 +1,6 @@
 import pygame
 import sys
-from theme import *
+from ui.theme import *
 
 
 pygame.init()
@@ -92,17 +92,17 @@ class CasinoStartMenu:
         self.screen.blit(title_shadow, (title_rect.x + 3, title_rect.y + 3))
         self.screen.blit(title, title_rect)
 
+if __name__ == "__main__":
+    menu = CasinoStartMenu(screen)
 
-menu = CasinoStartMenu(screen)
-
-# simple game loop to keep menu running
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        menu.handle_event(event)
-    menu.draw()
-    pygame.display.flip()
-pygame.quit()
-sys.exit()
+    # simple game loop to keep menu running
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            menu.handle_event(event)
+        menu.draw()
+        pygame.display.flip()
+    pygame.quit()
+    sys.exit()
