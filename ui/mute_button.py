@@ -1,6 +1,8 @@
 import pygame
 import os
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+IMAGES = os.path.join(PROJECT_ROOT, "images")
 
 class MuteButton:
     def __init__(self, x, y, size=50):
@@ -8,8 +10,7 @@ class MuteButton:
         self.y = y
         self.size = size
         self.muted = False
-        icon = pygame.image.load(os.path.join(
-            os.path.dirname(__file__), "mute.png")).convert_alpha()
+        icon = pygame.image.load(os.path.join(IMAGES, "mute.png")).convert_alpha()
         self.icon = pygame.transform.scale(icon, (size, size))
         self.rect = pygame.Rect(x - size//2, y - size//2, size, size)
 
