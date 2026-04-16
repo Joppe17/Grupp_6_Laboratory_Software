@@ -1,57 +1,59 @@
 import pygame
-import os
+from ui.theme import *
 
 
 class StartMenu:
     def __init__(self, screen):
         self.screen = screen
 
-        panel_width = 500
-        panel_height = 350
         sw = screen.get_width()
         sh = screen.get_height()
-        px = (sw - panel_width) // 2
-        py = (sh - panel_height) // 2
+        px = (sw - PANEL_WIDTH) // 2
+        py = (sh - PANEL_HEIGHT) // 2
 
-        self.panel_rect = pygame.Rect(px, py, panel_width, panel_height)
-        self.panel_color = (245, 222, 179)
-        self.border_color = (139, 69, 19)
+        self.panel_rect = pygame.Rect(px, py, PANEL_WIDTH, PANEL_HEIGHT)
+        
 
         btn_w, btn_h = 200, 55
         btn_x = (sw - btn_w) // 2
         self.start_rect = pygame.Rect(btn_x, py + 185, btn_w, btn_h)
         self.exit_rect = pygame.Rect(btn_x, py + 265, btn_w, btn_h)
 
-        font_path = os.path.join(os.path.dirname(__file__), "Banana.otf")
-        self.title_font = pygame.font.Font(font_path, 52)
-        self.button_font = pygame.font.Font(font_path, 36)
+        self.title_font = pygame.font.Font(FONT_PATH_B, 52)
+        self.button_font = pygame.font.Font(FONT_PATH_B, 36)
 
     def _draw(self, mouse_pos):
         # Dim the game behind the menu
         overlay = pygame.Surface(self.screen.get_size(), pygame.SRCALPHA)
-        overlay.fill((0, 0, 0, 140))
+        overlay.fill(OVERLAY_COLOR)
         self.screen.blit(overlay, (0, 0))
 
         # Panel
-        pygame.draw.rect(self.screen, self.panel_color,
+        pygame.draw.rect(self.screen, PANEL_COLOR,
                          self.panel_rect, border_radius=20)
-        pygame.draw.rect(self.screen, self.border_color,
+        pygame.draw.rect(self.screen, BORDER_COLOR,
                          self.panel_rect, width=4, border_radius=20)
 
         # Title
-        title = self.title_font.render("PAUSED", True, self.border_color)
-        self.screen.blit(title, title.get_rect(center=(self.screen.get_width() // 2,
-                                                       self.panel_rect.y + 80)))
+        title_shadow = self.title_font.render("PAUSED", True, SHADOW_COLOR)
+        title = self.title_font.render("PAUSED", True, BORDER_COLOR)
+        title_rect = title.get_rect(center=(self.screen.get_width() // 2,
+                                            self.panel_rect.y + 80))
+        self.screen.blit(title_shadow, (title_rect.x + SHADOW_OFFSET, title_rect.y + SHADOW_OFFSET))
+        self.screen.blit(title, title_rect)
 
         # Buttons
         for rect, label in [(self.start_rect, "Start"), (self.exit_rect, "Exit")]:
             hover = rect.collidepoint(mouse_pos)
-            btn_color = (180, 100, 30) if hover else (139, 69, 19)
+            btn_color = BUTTON_HOVER if hover else BUTTON_COLOR
             pygame.draw.rect(self.screen, btn_color, rect, border_radius=12)
-            pygame.draw.rect(self.screen, self.border_color,
+            pygame.draw.rect(self.screen, BORDER_COLOR,
                              rect, width=2, border_radius=12)
-            text = self.button_font.render(label, True, (255, 255, 255))
+            text = self.button_font.render(label, True, TEXT_COLOR)
+            text_shadow = self.button_font.render(label, True, SHADOW_COLOR)
             bounds = text.get_bounding_rect()
+            self.screen.blit(text_shadow, (rect.centerx - bounds.centerx + SHADOW_OFFSET,
+                                           rect.centery - bounds.centery + SHADOW_OFFSET))
             self.screen.blit(text, (rect.centerx - bounds.centerx,
                                     rect.centery - bounds.centery))
 
