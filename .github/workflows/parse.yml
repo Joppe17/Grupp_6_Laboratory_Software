@@ -22,7 +22,7 @@ jobs:
         run: |
           pip install pygame pytest
 
-      - name: Check that code parses
+      - name: Compilation
         run: |
           python -m py_compile main.py
           python -m py_compile logic/game_loop.py
@@ -30,15 +30,16 @@ jobs:
           python -m py_compile logic/game_state.py
           python -m py_compile ui/background.py
           python -m py_compile ui/banana.py
+          python -m py_compile ui/casino_start_menu.py
           python -m py_compile ui/circle.py
           python -m py_compile ui/hud.py
           python -m py_compile ui/mute_button.py
           python -m py_compile ui/start_menu.py
           python -m py_compile ui/whack_a_monkey.py
 
-      - name: Run unit tests
+      - name: Unit tests
         run: |
-          pytest unittest/bananatest.py
+          pytest .
         env:
           SDL_VIDEODRIVER: dummy
           SDL_AUDIODRIVER: dummy
