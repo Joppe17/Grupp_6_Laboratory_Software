@@ -4,11 +4,11 @@ import os
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
+
 class TestMuteButton(unittest.TestCase):
 
-    
     def test_mute_button_imports(self):
-        
+
         from ui.mute_button import MuteButton
         self.assertTrue(callable(MuteButton))
 
@@ -25,9 +25,7 @@ class TestMuteButton(unittest.TestCase):
         import pygame
         pygame.init()
         pygame.mixer.init()
-        pygame.mixer.music.load(os.path.join(os.path.dirname(__file__), '..', 'ui', 'background_music.mp3'))
-        self.assertTrue(True)  
+        pygame.mixer.music.load(os.path.join(
+            os.path.dirname(__file__), '..', 'ui', 'background_music.mp3'))
+        self.assertTrue(True)
         pygame.quit()
-
-if __name__ == '__main__':
-    unittest.main()
