@@ -18,7 +18,7 @@ class Circle(GameObject):
         self.image_path = image_path
 
     def handle_event(self, event):
-        if event.type == pygame.MOUSEBUTTONDOWN:
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button in (1, 3):
             dx = event.pos[0] - self.x
             dy = event.pos[1] - self.y
             if math.sqrt(dx * dx + dy * dy) <= self.radius:
