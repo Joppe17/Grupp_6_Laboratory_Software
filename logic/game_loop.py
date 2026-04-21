@@ -6,9 +6,13 @@ from ui.mute_button import MuteButton
 from logic.game_state import GameState
 from ui.banana import FlyingBanana
 from ui.upgrade_menu import UpgradeMenu, UpgradeButton
+from logic.upgrades.x2_multiplier import X2_Multiplier
+from logic.upgrades.auto_clicker import AutoClicker, AUTO_CLICK_MULTIPLIER_CAP
+from logic.upgrades.auto_monkey_punch import MonkeyPunch
 from ui.start_menu import StartMenu
 from ui.casino_start_menu import CasinoStartMenu
 from ui.casino_button import CasinoButton
+
 
 from ui.whack_a_monkey import run_minigame
 
@@ -39,6 +43,7 @@ def run():
     pygame.mixer.music.load("sounds/background_music.mp3")
     upgrade_menu = UpgradeMenu(screen)
     upgrade_button = UpgradeButton(screen, upgrade_menu)
+    upgrade_menu.set_upgrades([X2_Multiplier(state), AutoClicker(state), MonkeyPunch(state)])
     pygame.mixer.music.play(-1)
 
     casino_button = CasinoButton(
@@ -69,6 +74,9 @@ def run():
             upgrade_menu.handle_event(event)
             upgrade_button.handle_event(event)
             casino_button.handle_event(event)
+
+        state.score += state.kps * min(state.permanent_x2_multiplier, AUTO_CLICK_MULTIPLIER_CAP) * state.click_multiplier * dt
+
 
         screen.fill((0, 25, 150))
         background.draw(screen)

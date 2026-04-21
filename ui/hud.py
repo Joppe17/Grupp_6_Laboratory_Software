@@ -13,9 +13,9 @@ class Hud:
         self.bonus_color = (255, 200, 0)
 
     def draw(self, screen, counter, state):
-        text = self.font.render(f'CLICKS : {counter}', True, self.text_color)
+        text = self.font.render(f'CLICKS : {int(counter)}', True, self.text_color)
         shadow = self.font.render(
-            f'CLICKS : {counter}', True, self.shadow_color)
+            f'CLICKS : {int(counter)}', True, self.shadow_color)
         rect = text.get_rect(center=(320, 70))
         screen.blit(shadow, (rect.x + 3, rect.y + 3))
         screen.blit(text, rect)

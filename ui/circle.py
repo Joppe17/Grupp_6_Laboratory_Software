@@ -23,7 +23,7 @@ class Circle(GameObject):
             dx = event.pos[0] - self.x
             dy = event.pos[1] - self.y
             if math.sqrt(dx * dx + dy * dy) <= self.radius:
-                self.state.score += 1 * self.state.click_multiplier
+                self.state.score += 1 * self.state.permanent_x2_multiplier * self.state.click_multiplier
                 if self.target_radius < self.max_radius:
                     self.target_radius = int(
                         self.target_radius * self.scale_factor)
