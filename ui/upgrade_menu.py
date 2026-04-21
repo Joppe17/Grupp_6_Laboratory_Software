@@ -5,7 +5,7 @@ from ui.theme import (
     TEXT_COLOR, OVERLAY_COLOR, FONT_PATH_B, FONT_PATH_J,
     TITLE_FONT_SIZE, BUTTON_FONT_SIZE
 )
-
+from ui.upgrades.upgrade_card import UpgradePanel
 PANEL_WIDTH_RATIO = 0.8
 SLIDE_SPEED = 2000
 
@@ -37,9 +37,14 @@ class UpgradeMenu:
 
         self.close_rect = pygame.Rect(
             int(self.target_x) + self.panel_width - 50, 10, 40, 40)
+        
+        self.upgrades_panel = UpgradePanel(self.panel_width, self.target_x)
 
     def toggle(self):
         self.open = not self.open
+
+    def set_upgrades(self, upgrades):
+        self.upgrades_panel.set_upgrades(upgrades)
 
     def update(self, dt):
         if self.open:
@@ -67,6 +72,8 @@ class UpgradeMenu:
             shifted_close = self.close_rect.move(self.panel_x - self.target_x, 0)
             if shifted_close.collidepoint(event.pos):
                 self.toggle()
+
+            self.upgrades_panel.handle_event(event, self.panel_x, self.target_x)
 
     def _draw_panel(self, mouse_pos):
         px = int(self.panel_x)
@@ -107,12 +114,13 @@ class UpgradeMenu:
         pygame.draw.rect(self.screen, BORDER_COLOR, content_rect, width=2, border_radius=8)
 
         # page label
-        page_label = self.tab_font.render(
-            f"No {TABS[self.current_tab]} yet", True, BORDER_COLOR)
-        page_rect = page_label.get_rect(
-            center=(px + self.panel_width // 2, 145 + content_rect.height // 2))
-        page_rect.y += 14
-        self.screen.blit(page_label, page_rect)
+        if not self.upgrades_panel.draw(self.screen, px, mouse_pos, TABS[self.current_tab]):
+            page_label = self.tab_font.render(
+                f"No {TABS[self.current_tab]} yet", True, BORDER_COLOR)
+            page_rect = page_label.get_rect(
+                center=(px + self.panel_width // 2, 145 + content_rect.height // 2))
+            page_rect.y += 14
+            self.screen.blit(page_label, page_rect)
 
     def draw(self):
         if self.panel_x >= self.sw:
