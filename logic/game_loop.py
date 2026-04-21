@@ -43,7 +43,7 @@ def run():
 
     casino_button = CasinoButton(
         position=(150, 600),
-        image="cigarr_monkey.png",
+        image="cigarr_monkey.jpg",
         action=open_casino,
         size=70
     )
