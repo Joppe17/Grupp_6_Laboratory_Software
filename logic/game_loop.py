@@ -7,6 +7,7 @@ from logic.game_state import GameState
 from ui.banana import FlyingBanana
 from ui.upgrade_menu import UpgradeMenu, UpgradeButton
 from ui.start_menu import StartMenu
+from ui.casino_start_menu import CasinoStartMenu
 
 from ui.whack_a_monkey import run_minigame
 
