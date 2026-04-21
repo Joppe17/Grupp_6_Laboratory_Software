@@ -14,7 +14,6 @@ class CasinoButton:
 
         self.action = action
 
-        # transparency values
         self.alpha_idle = 120
         self.alpha_hover = 255
 
@@ -33,7 +32,7 @@ class CasinoButton:
         else:
             alpha = self.alpha_idle
 
-        image = self.image.copy()
-        image.set_alpha(alpha)
+        img = self.image.copy()
+        img.set_alpha(alpha)
 
-        surface.blit(image, self.rect)
+        surface.blit(img, self.rect)

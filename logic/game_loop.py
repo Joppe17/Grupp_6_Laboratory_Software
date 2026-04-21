@@ -8,6 +8,7 @@ from ui.banana import FlyingBanana
 from ui.upgrade_menu import UpgradeMenu, UpgradeButton
 from ui.start_menu import StartMenu
 from ui.casino_start_menu import CasinoStartMenu
+from ui.casino_button import CasinoButton
 
 from ui.whack_a_monkey import run_minigame
 
@@ -22,6 +23,10 @@ def run():
     state = GameState()
     objects = []
 
+    def open_casino():
+        casino = CasinoStartMenu(screen, state)
+        casino.run()
+
     background = Background(screen)
     hud = Hud(screen)
     my_circle = Circle(320, 320, 95, "images/monkey_clicker.jpg", state)
@@ -35,6 +40,13 @@ def run():
     upgrade_menu = UpgradeMenu(screen)
     upgrade_button = UpgradeButton(screen, upgrade_menu)
     pygame.mixer.music.play(-1)
+
+    casino_button = CasinoButton(
+        position=(150, 600),
+        image="cigarr_monkey.png",
+        action=open_casino,
+        size=70
+    )
 
     menu = StartMenu(screen)
 
@@ -56,6 +68,7 @@ def run():
             mute_button.handle_event(event)
             upgrade_menu.handle_event(event)
             upgrade_button.handle_event(event)
+            casino_button.handle_event(event)
 
         screen.fill((0, 25, 150))
         background.draw(screen)
@@ -69,6 +82,7 @@ def run():
         upgrade_menu.draw()
         upgrade_button.draw()
         mute_button.draw(screen)
+        casino_button.draw(screen)
         pygame.display.flip()
 
     pygame.quit()
