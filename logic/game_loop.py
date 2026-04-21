@@ -8,7 +8,9 @@ from ui.banana import FlyingBanana
 from ui.upgrade_menu import UpgradeMenu, UpgradeButton
 from logic.upgrades.x2_multiplier import X2_Multiplier
 from logic.upgrades.auto_clicker import AutoClicker, AUTO_CLICK_MULTIPLIER_CAP
+from logic.upgrades.auto_monkey_punch import MonkeyPunch
 from ui.start_menu import StartMenu
+
 
 from ui.whack_a_monkey import run_minigame
 
@@ -35,7 +37,7 @@ def run():
     pygame.mixer.music.load("sounds/background_music.mp3")
     upgrade_menu = UpgradeMenu(screen)
     upgrade_button = UpgradeButton(screen, upgrade_menu)
-    upgrade_menu.set_upgrades([X2_Multiplier(state), AutoClicker(state)])
+    upgrade_menu.set_upgrades([X2_Multiplier(state), AutoClicker(state), MonkeyPunch(state)])
     pygame.mixer.music.play(-1)
 
     menu = StartMenu(screen)
