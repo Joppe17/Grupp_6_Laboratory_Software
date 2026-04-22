@@ -16,3 +16,11 @@ __pycache__/
 *.pyc
 venv/
 .env
+
+#coverage stuff
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.cover
+*.py,cover
