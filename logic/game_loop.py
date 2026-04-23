@@ -10,6 +10,8 @@ from logic.upgrades.x2_multiplier import X2_Multiplier
 from logic.upgrades.auto_clicker import AutoClicker, AUTO_CLICK_MULTIPLIER_CAP
 from logic.upgrades.auto_monkey_punch import MonkeyPunch
 from ui.start_menu import StartMenu
+from ui.casino_start_menu import CasinoStartMenu
+from ui.casino_button import CasinoButton
 
 
 from ui.whack_a_monkey import run_minigame
@@ -25,6 +27,10 @@ def run():
     state = GameState()
     objects = []
 
+    def open_casino():
+        casino = CasinoStartMenu(screen, state)
+        casino.run()
+
     background = Background(screen)
     hud = Hud(screen)
     my_circle = Circle(320, 320, 95, "images/monkey_clicker.jpg", state)
@@ -39,6 +45,13 @@ def run():
     upgrade_button = UpgradeButton(screen, upgrade_menu)
     upgrade_menu.set_upgrades([X2_Multiplier(state), AutoClicker(state), MonkeyPunch(state)])
     pygame.mixer.music.play(-1)
+
+    casino_button = CasinoButton(
+        position=(150, 600),
+        image="cigarr_monkey.jpg",
+        action=open_casino,
+        size=70
+    )
 
     menu = StartMenu(screen)
 
@@ -60,7 +73,10 @@ def run():
             mute_button.handle_event(event)
             upgrade_menu.handle_event(event)
             upgrade_button.handle_event(event)
+            casino_button.handle_event(event)
+
         state.score += state.kps * min(state.permanent_x2_multiplier, AUTO_CLICK_MULTIPLIER_CAP) * state.click_multiplier * dt
+
 
         screen.fill((0, 25, 150))
         background.draw(screen)
@@ -74,6 +90,7 @@ def run():
         upgrade_menu.draw()
         upgrade_button.draw()
         mute_button.draw(screen)
+        casino_button.draw(screen)
         pygame.display.flip()
 
     pygame.quit()

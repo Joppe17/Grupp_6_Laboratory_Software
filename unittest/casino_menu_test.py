@@ -5,6 +5,11 @@ import pygame
 from ui.casino_start_menu import CasinoStartMenu
 
 
+class DummyGameState:
+    def __init__(self):
+        self.counter = 0
+
+
 class TestCasinoStartMenu(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -17,7 +22,8 @@ class TestCasinoStartMenu(unittest.TestCase):
         pygame.quit()
 
     def setUp(self):
-        self.menu = CasinoStartMenu(self.screen)
+        self.game_state = DummyGameState()
+        self.menu = CasinoStartMenu(self.screen, self.game_state)
 
     def test_menu_is_created(self):
         self.assertIsNotNone(self.menu)

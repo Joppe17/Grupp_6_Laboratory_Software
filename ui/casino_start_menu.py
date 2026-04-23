@@ -17,8 +17,9 @@ button_font = pygame.font.Font(FONT_PATH_B, BUTTON_FONT_SIZE)
 
 class CasinoStartMenu:
 
-    def __init__(self, screen):
+    def __init__(self, screen, game_state):
         self.screen = screen
+        self.game_state = game_state
 
         margin = 40  # distance from screen edges
 
@@ -92,8 +93,19 @@ class CasinoStartMenu:
         self.screen.blit(title_shadow, (title_rect.x + 3, title_rect.y + 3))
         self.screen.blit(title, title_rect)
 
+        # counter
+        counter_text = button_font.render(
+            f"Points: {self.game_state.counter}", True, TEXT_COLOR
+        )
+
+        counter_rect = counter_text.get_rect(
+            center=(self.panel_rect.centerx, self.panel_rect.y + 120)
+        )
+
+        self.screen.blit(counter_text, counter_rect)
+
 if __name__ == "__main__":
-    menu = CasinoStartMenu(screen)
+    menu = CasinoStartMenu(screen, game_state)
 
     # simple game loop to keep menu running
     running = True
