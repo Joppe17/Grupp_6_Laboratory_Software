@@ -1,15 +1,12 @@
 import sys
 import os
+import unittest
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 import pygame
 from ui.banana import FlyingBanana
 from logic.game_state import GameState
 
-pygame.init()
-screen = pygame.display.set_mode((800, 600))
-
-
-class TestGameState:
+class TestGameState(unittest.TestCase):
     def test__initial_score(self):
         state = GameState()
         assert state.score == 0
@@ -25,15 +22,25 @@ class TestGameState:
         assert state.score == 3
 
 
-class TestBanana:
+class TestBanana(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        pygame.init()
+        cls.screen = pygame.display.set_mode((800, 600))
+    
+    @classmethod
+    def tearDownClass(cls):
+        pygame.quit()
+
     def test_starts_inactive(self):
         state = GameState()
-        banana = FlyingBanana(screen, state)
+        banana = FlyingBanana(self.screen, state)
         assert banana.active == False
 
     def test_spawn(self):
         state = GameState()
-        banana = FlyingBanana(screen, state)
+        banana = FlyingBanana(self.screen, state)
         banana.spawn()
         assert banana.active == True
         assert 60 <= banana.x <= 740
@@ -41,7 +48,7 @@ class TestBanana:
 
     def test_bonus_activation_on_click(self):
         state = GameState()
-        banana = FlyingBanana(screen, state)
+        banana = FlyingBanana(self.screen, state)
         banana.spawn()
         click_event = pygame.event.Event(
             pygame.MOUSEBUTTONDOWN, pos=(banana.x + 10, banana.y + 10))
@@ -51,7 +58,7 @@ class TestBanana:
 
     def test_bonus_expires(self):
         state = GameState()
-        banana = FlyingBanana(screen, state)
+        banana = FlyingBanana(self.screen, state)
         banana.spawn()
         click_event = pygame.event.Event(
             pygame.MOUSEBUTTONDOWN, pos=(banana.x + 10, banana.y + 10))
